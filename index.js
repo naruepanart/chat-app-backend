@@ -12,12 +12,12 @@ io.on("connection", (socket) => {
   });
 
   socket.on("join-room", (data) => {
-    console.log("join-room")
+    //console.log("join-room")
     socket.join(data.id);
   });
-  
+
   socket.on("send-message", (data) => {
-    console.log("send-message")
+    //console.log("send-message")
     socket.to(data.room).emit("rec", data);
   });
 });
