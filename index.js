@@ -7,14 +7,10 @@ const { Server } = require("socket.io");
 const io = new Server(server);
 
 io.on("connection", (socket) => {
-  socket.on("disconnect", () => {
-    console.log("disconnect");
-  });
-
+  socket.on("disconnect", () => null);
   socket.on("join-room", (data) => {
     socket.join(data.id);
   });
-
   socket.on("setup", (room) => {
     socket.join(room);
     socket.emit("connected");
